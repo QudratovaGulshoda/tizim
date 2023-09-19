@@ -28,7 +28,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 
     # API endpoints URL. This includes the 'app.urls' module.
-    path("api/", include("app.urls")),
+    path("api/", include("api.urls")),
 
     # URL for Swagger documentation with Swagger UI.
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name="swagger-schema"),

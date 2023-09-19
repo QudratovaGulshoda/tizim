@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-_gvc6646qaj4#%yf3120od_u66x(wu%hg1)nz9z6$4tyqq(u$h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -35,11 +35,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    ############## Apps ######################
-    'mainapp.apps.MainappConfig',
-    'api.apps.ApiConfig',
-    'authentication.apps.AuthenticationConfig',
-    ############# Packages #################
+
+    # Apps
+    'mainapp',
+    'api',
+    'authentication',
+
+    # Packages
     "corsheaders",
     'rest_framework',
     'rest_framework.authtoken',
@@ -142,12 +144,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# Your existing STATIC_URL setting
 STATIC_URL = 'static/'
+
+# Check if DEBUG is True
 if DEBUG:
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static')
     ]
 else:
+    # Set STATIC_ROOT for production
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = 'media/'
